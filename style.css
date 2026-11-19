@@ -350,3 +350,14 @@ footer.site p { margin: 0; }
   font-size: 0.75rem;
   white-space: nowrap;
 }
+
+/* ---------- wall art gallery ---------- */
+.art-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin: 0 0 28px; }
+@media (min-width: 640px) { .art-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .art-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.art-item { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; box-shadow: var(--shadow); }
+.art-item img { width: 100%; height: auto; display: block; border-radius: 8px; }
+.art-item h3 { margin: 12px 0 4px; font-size: 1.1rem; }
+.art-item p { margin: 0 0 10px; color: #33473a; }
+.art-item .size { font-size: 0.9rem; color: var(--muted); }
+.art-item .download-btn { font-size: 1rem; padding: 10px 16px; }
