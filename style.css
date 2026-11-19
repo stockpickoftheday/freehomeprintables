@@ -328,3 +328,11 @@ footer.site p { margin: 0; }
   nav.main { flex-wrap: wrap; overflow-x: visible; }
   .sticky-bar { display: none !important; }
 }
+
+/* ---------- phone layout ---------- */
+
+@media (max-width: 640px) {
+  .sticky-bar { display: none; }
+  .preview table { font-size: 0.85rem; }
+  .preview th, .preview td { padding: 8px 5px; }
+}
