@@ -1,0 +1,330 @@
+/* Free Home Printables — shared stylesheet.
+   Same design family as the house calculator site: sticky white header,
+   pill nav, hero with skyline, soft cards. Plain, fast, no external
+   fonts or libraries. Mobile-first: single column, sticky download bar. */
+
+* { box-sizing: border-box; }
+
+:root {
+  --green-900: #0b3d26;
+  --green-800: #0e4d2e;
+  --green-700: #14532d;
+  --green-600: #1b7a4d;
+  --green-50: #eaf6ee;
+  --ink: #14201a;
+  --muted: #5b6b60;
+  --line: #e4e9e5;
+  --bg: #f7f8f6;
+  --card: #ffffff;
+  --amber-bg: #fff9e6;
+  --amber-line: #d9a514;
+  --shadow: 0 1px 2px rgba(16, 24, 20, 0.05), 0 10px 30px rgba(16, 24, 20, 0.06);
+  --radius: 16px;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+a { color: var(--green-700); }
+a:hover { color: var(--green-600); }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+/* ---------- header & nav ---------- */
+
+header.site {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0 10px;
+}
+
+header.site .site-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+header.site .site-title a { color: var(--green-700); text-decoration: none; }
+
+header.site .tagline {
+  margin: 2px 0 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+nav.main {
+  margin-top: 10px;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+nav.main::-webkit-scrollbar { display: none; }
+
+nav.main a {
+  flex: 0 0 auto;
+  color: #1d2b22;
+  background: #f1f4f2;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 7px 13px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+nav.main a:hover { background: #e2ebe5; color: var(--green-700); }
+nav.main a.current { background: var(--green-700); color: #fff; }
+
+/* ---------- hero & headings ---------- */
+
+main { padding: 20px 0 64px; }
+
+/* ---------- houses skyline (inline SVG, no external images) ---------- */
+
+.hero {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201440%20150%22%20width%3D%221440%22%20height%3D%22150%22%20role%3D%22img%22%20aria-hidden%3D%22true%22%3E%3Ccircle%20cx%3D%221405%22%20cy%3D%2222%22%20r%3D%2214%22%20fill%3D%22%23ffd66b%22%20opacity%3D%220.85%22%2F%3E%3Crect%20x%3D%2228%22%20y%3D%2268%22%20width%3D%22150%22%20height%3D%2270%22%20fill%3D%22%23a8d3b6%22%2F%3E%3Cpolygon%20points%3D%2220%2C68%20103%2C34%20186%2C68%22%20fill%3D%22%236aa87e%22%2F%3E%3Crect%20x%3D%2242%22%20y%3D%2284%22%20width%3D%2214%22%20height%3D%2218%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%22150%22%20y%3D%2284%22%20width%3D%2214%22%20height%3D%2218%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%2295%22%20y%3D%22112%22%20width%3D%2216%22%20height%3D%2226%22%20fill%3D%22%2314532d%22%2F%3E%3Crect%20x%3D%22206%22%20y%3D%2246%22%20width%3D%22118%22%20height%3D%2292%22%20fill%3D%22%2393c8a4%22%2F%3E%3Crect%20x%3D%22202%22%20y%3D%2240%22%20width%3D%22126%22%20height%3D%226%22%20fill%3D%22%237fb98f%22%2F%3E%3Crect%20x%3D%22220%22%20y%3D%2260%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%22296%22%20y%3D%2260%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%22220%22%20y%3D%2290%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%22296%22%20y%3D%2290%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%22257%22%20y%3D%22112%22%20width%3D%2216%22%20height%3D%2226%22%20fill%3D%22%2314532d%22%2F%3E%3Crect%20x%3D%22388%22%20y%3D%2276%22%20width%3D%22168%22%20height%3D%2262%22%20fill%3D%22%23bfe0c8%22%2F%3E%3Cpolygon%20points%3D%22380%2C76%20472%2C46%20564%2C76%22%20fill%3D%22%23d99a6c%22%2F%3E%3Crect%20x%3D%22402%22%20y%3D%2292%22%20width%3D%2214%22%20height%3D%2218%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%22528%22%20y%3D%2292%22%20width%3D%2214%22%20height%3D%2218%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%22464%22%20y%3D%22112%22%20width%3D%2216%22%20height%3D%2226%22%20fill%3D%22%2314532d%22%2F%3E%3Crect%20x%3D%22588%22%20y%3D%2252%22%20width%3D%22128%22%20height%3D%2286%22%20fill%3D%22%23a8d3b6%22%2F%3E%3Cpolygon%20points%3D%22580%2C52%20652%2C16%20724%2C52%22%20fill%3D%22%237fb98f%22%2F%3E%3Crect%20x%3D%22602%22%20y%3D%2268%22%20width%3D%2214%22%20height%3D%2218%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%22688%22%20y%3D%2268%22%20width%3D%2214%22%20height%3D%2218%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%22644%22%20y%3D%22112%22%20width%3D%2216%22%20height%3D%2226%22%20fill%3D%22%2314532d%22%2F%3E%3Crect%20x%3D%22778%22%20y%3D%2240%22%20width%3D%22148%22%20height%3D%2298%22%20fill%3D%22%2393c8a4%22%2F%3E%3Crect%20x%3D%22774%22%20y%3D%2234%22%20width%3D%22156%22%20height%3D%226%22%20fill%3D%22%236aa87e%22%2F%3E%3Crect%20x%3D%22792%22%20y%3D%2254%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%22898%22%20y%3D%2254%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%22792%22%20y%3D%2284%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%22898%22%20y%3D%2284%22%20width%3D%2214%22%20height%3D%2214%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%22844%22%20y%3D%22112%22%20width%3D%2216%22%20height%3D%2226%22%20fill%3D%22%2314532d%22%2F%3E%3Crect%20x%3D%22956%22%20y%3D%2270%22%20width%3D%22138%22%20height%3D%2268%22%20fill%3D%22%23bfe0c8%22%2F%3E%3Cpolygon%20points%3D%22948%2C70%201025%2C38%201102%2C70%22%20fill%3D%22%236aa87e%22%2F%3E%3Crect%20x%3D%22970%22%20y%3D%2286%22%20width%3D%2214%22%20height%3D%2218%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%221066%22%20y%3D%2286%22%20width%3D%2214%22%20height%3D%2218%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%221017%22%20y%3D%22112%22%20width%3D%2216%22%20height%3D%2226%22%20fill%3D%22%2314532d%22%2F%3E%3Crect%20x%3D%221158%22%20y%3D%2260%22%20width%3D%22158%22%20height%3D%2278%22%20fill%3D%22%23a8d3b6%22%2F%3E%3Cpolygon%20points%3D%221150%2C60%201237%2C26%201324%2C60%22%20fill%3D%22%237fb98f%22%2F%3E%3Crect%20x%3D%221172%22%20y%3D%2276%22%20width%3D%2214%22%20height%3D%2218%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%221288%22%20y%3D%2276%22%20width%3D%2214%22%20height%3D%2218%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%221229%22%20y%3D%22112%22%20width%3D%2216%22%20height%3D%2226%22%20fill%3D%22%2314532d%22%2F%3E%3Crect%20x%3D%221348%22%20y%3D%2280%22%20width%3D%2292%22%20height%3D%2258%22%20fill%3D%22%2393c8a4%22%2F%3E%3Cpolygon%20points%3D%221340%2C80%201394%2C54%201448%2C80%22%20fill%3D%22%236aa87e%22%2F%3E%3Crect%20x%3D%221362%22%20y%3D%2296%22%20width%3D%2214%22%20height%3D%2218%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%221412%22%20y%3D%2296%22%20width%3D%2214%22%20height%3D%2218%22%20fill%3D%22%23fff3c4%22%2F%3E%3Crect%20x%3D%221386%22%20y%3D%22112%22%20width%3D%2216%22%20height%3D%2226%22%20fill%3D%22%2314532d%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22136%22%20width%3D%221440%22%20height%3D%2214%22%20fill%3D%22%239ccfa9%22%2F%3E%3C%2Fsvg%3E"), linear-gradient(180deg, #eaf5ec 0%, #f4faf5 55%, #e7f3ea 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center bottom, center;
+  background-size: 1100px auto, cover;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 28px 28px 148px;
+  margin-top: 4px;
+}
+
+.page-hero {
+  background: linear-gradient(180deg, #eaf5ec 0%, #f4faf5 60%, #edf5ee 100%);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px 24px 28px;
+  margin-top: 4px;
+}
+.page-hero h1 { margin-bottom: 10px; }
+.page-hero .lede { margin-bottom: 0; }
+
+@media (max-width: 640px) {
+  .hero { padding: 22px 20px 132px; background-size: 900px auto, cover; }
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--green-600);
+}
+
+h1 {
+  font-size: clamp(1.9rem, 5vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin: 0 0 12px;
+}
+h2 { font-size: 1.45rem; line-height: 1.25; letter-spacing: -0.015em; margin: 44px 0 10px; }
+h3 { font-size: 1.12rem; margin: 28px 0 8px; }
+p { margin: 0 0 14px; }
+ul, ol { margin: 0 0 14px; padding-left: 24px; }
+li { margin-bottom: 8px; }
+
+.lede { font-size: 1.12rem; line-height: 1.55; color: #33473a; max-width: 62ch; }
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 4px;
+  padding: 0;
+  list-style: none;
+}
+.chips li {
+  margin: 0;
+  background: var(--green-50);
+  color: var(--green-800);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 13px;
+  border-radius: 999px;
+}
+
+/* ---------- printable cards (home page) ---------- */
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 28px 0 8px;
+}
+@media (min-width: 720px) {
+  .cards { grid-template-columns: 1fr 1fr; }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px 24px;
+}
+.card h3 { margin: 0 0 6px; font-size: 1.2rem; }
+.card h3 a { color: var(--green-700); text-decoration: none; }
+.card h3 a:hover { text-decoration: underline; }
+.card p { margin: 0 0 12px; color: #33473a; }
+.card .go { font-weight: 700; }
+
+/* ---------- download button & preview ---------- */
+
+.download-btn {
+  display: inline-block;
+  background: var(--green-700);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+.download-btn:hover { background: var(--green-600); color: #fff; }
+
+.download-note { color: var(--muted); font-size: 0.95rem; }
+
+.preview {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px 24px;
+  margin: 24px 0;
+}
+.preview h3 { margin-top: 0; }
+.preview .caption { color: var(--muted); font-size: 0.9rem; margin-bottom: 14px; }
+
+.preview table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 0.9rem;
+}
+.preview th, .preview td {
+  padding: 10px 8px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.preview th {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  border-bottom: 2px solid var(--line);
+}
+.preview tr:last-child td { border-bottom: none; }
+.preview td.empty { height: 34px; }
+
+.box {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.check-list { list-style: none; padding: 0; margin: 0 0 8px; }
+.check-list li { padding: 7px 0; border-bottom: 1px solid var(--line); }
+.check-list li:last-child { border-bottom: none; }
+
+.table-scroll { overflow-x: auto; margin: 0 0 16px; -webkit-overflow-scrolling: touch; }
+
+/* ---------- sticky download bar (mobile only) ---------- */
+
+.sticky-bar {
+  position: sticky;
+  bottom: 12px;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+.sticky-bar a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--green-900);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(11, 61, 38, 0.35);
+  padding: 13px 20px;
+}
+
+/* ---------- explainer cards ---------- */
+
+.example {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px 24px;
+  margin: 24px 0;
+}
+.example h3 { margin-top: 0; }
+
+.note {
+  background: var(--amber-bg);
+  border: 1px solid #f0e2b0;
+  border-left: 4px solid var(--amber-line);
+  padding: 12px 16px;
+  border-radius: 0 12px 12px 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- ad slots (hidden until AdSense is approved) ---------- */
+
+.ad-slot { display: none; }
+
+/* ---------- footer ---------- */
+
+footer.site {
+  background: var(--green-900);
+  color: #bfd8c8;
+  padding: 32px 0 40px;
+  font-size: 0.9rem;
+}
+footer.site nav { display: flex; flex-wrap: wrap; gap: 6px 8px; margin-bottom: 16px; }
+footer.site nav a {
+  color: #dff0e6;
+  text-decoration: none;
+  font-size: 0.88rem;
+  padding: 5px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+}
+footer.site nav a:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+footer.site p { margin: 0; }
+
+/* ---------- desktop layout ---------- */
+
+@media (min-width: 960px) {
+  nav.main { flex-wrap: wrap; overflow-x: visible; }
+  .sticky-bar { display: none !important; }
+}
