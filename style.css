@@ -336,3 +336,17 @@ footer.site p { margin: 0; }
   .preview table { font-size: 0.85rem; }
   .preview th, .preview td { padding: 8px 5px; }
 }
+
+/* filled-in preview samples */
+.box.done {
+  background: var(--green-700);
+  color: #fff;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+}
+.hol {
+  color: #b3261e;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
