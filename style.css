@@ -49,11 +49,12 @@ header.site {
   background-position: center;
   background-size: cover;
   border-bottom: 1px solid var(--line);
-  padding: 14px 0 10px;
+  padding: 30px 0 24px;
 }
 
+
 header.site .site-title {
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -65,7 +66,7 @@ header.site .site-title a { color: var(--green-700); text-decoration: none; }
 
 header.site .tagline {
   margin: 2px 0 0;
-  font-size: 0.88rem;
+  font-size: 1.05rem;
   color: #b8860b;
   font-weight: 700;
   text-align: center;
