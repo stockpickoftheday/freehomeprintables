@@ -64,13 +64,17 @@ header.site .site-title {
 
 header.site .site-title a { color: var(--green-700); text-decoration: none; }
 
-header.site .tagline {
-  margin: 2px 0 0;
-  font-size: 1.05rem;
+.tagline-bar {
+  text-align: center;
   color: #b8860b;
   font-weight: 700;
-  text-align: center;
+  font-size: 1.15rem;
+  padding: 14px 20px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
 }
+
+.tagline-bar p { margin: 0; }
 
 nav.main {
   margin-top: 10px;
