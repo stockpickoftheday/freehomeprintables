@@ -412,3 +412,54 @@ footer.site p { margin: 0; }
 .art-item p { margin: 0 0 10px; color: #33473a; }
 .art-item .size { font-size: 0.9rem; color: var(--muted); }
 .art-item .download-btn { font-size: 1rem; padding: 10px 16px; }
+
+/* ---------- category cards (home page) ---------- */
+.cat-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 24px 0 8px; }
+@media (min-width: 720px) { .cat-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .cat-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.cat-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--green-600);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px 24px;
+}
+.cat-card h3 { margin: 0 0 6px; font-size: 1.25rem; }
+.cat-card h3 a { color: var(--green-700); text-decoration: none; }
+.cat-card h3 a:hover { text-decoration: underline; }
+.cat-card p { margin: 0 0 12px; color: #33473a; }
+.cat-links { list-style: none; margin: 0; padding: 0; }
+.cat-links li { margin: 0; padding: 7px 0; border-top: 1px solid var(--line); font-size: 0.95rem; }
+.cat-links li a { text-decoration: none; font-weight: 600; }
+.cat-links li a:hover { text-decoration: underline; }
+
+/* ---------- article cards (home page) ---------- */
+.article-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 24px 0 8px; }
+@media (min-width: 720px) { .article-grid { grid-template-columns: 1fr 1fr; } }
+.article-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px 24px;
+}
+.article-card .eyebrow { margin-bottom: 6px; }
+.article-card h3 { margin: 0 0 8px; font-size: 1.2rem; }
+.article-card h3 a { color: var(--green-700); text-decoration: none; }
+.article-card h3 a:hover { text-decoration: underline; }
+.article-card p { margin: 0 0 12px; color: #33473a; }
+.article-card .go { font-weight: 700; }
+
+/* ---------- article pages ---------- */
+.article-body h2 { margin-top: 36px; }
+.article-printables {
+  background: var(--green-50);
+  border: 1px solid #cfe6d6;
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin: 28px 0;
+}
+.article-printables h3 { margin: 0 0 8px; }
+.article-printables ul { margin: 0; padding-left: 20px; }
+.article-printables li { margin-bottom: 6px; }
