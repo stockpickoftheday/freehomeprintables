@@ -175,6 +175,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://freehomeprintables.com/holiday-dinner-prep.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://freehomeprintables.com/christmas-coloring-book.html</loc>
     <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
@@ -201,6 +207,30 @@
   <url>
     <loc>https://freehomeprintables.com/jungle-coloring-book.html</loc>
     <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://freehomeprintables.com/christmas-animals-coloring-book.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://freehomeprintables.com/santas-workshop-coloring-book.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://freehomeprintables.com/ocean-animals-coloring-book.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://freehomeprintables.com/dinosaurs-coloring-book.html</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
