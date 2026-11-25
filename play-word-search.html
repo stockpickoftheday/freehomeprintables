@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play the Christmas Word Search Online — Free, No Sign-Up</title>
+<meta name="description" content="Play the free Christmas word search online — twelve Christmas words hidden in the grid. Tap and drag to find them all, right in your browser. No printer, no download, no sign-up.">
+<link rel="canonical" href="https://freehomeprintables.com/play-word-search.html">
+<meta property="og:title" content="Play the Christmas Word Search Online — Free, No Sign-Up">
+<meta property="og:description" content="Play the free Christmas word search online — twelve Christmas words hidden in the grid. Tap and drag to find them all, right in your browser. No printer, no download, no sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://freehomeprintables.com/play-word-search.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Play the Christmas Word Search Online — Free, No Sign-Up",
+  "url": "https://freehomeprintables.com/play-word-search.html",
+  "description": "Play the free Christmas word search online — twelve Christmas words hidden in the grid. Tap and drag to find them all, right in your browser. No printer, no download, no sign-up."
+}
+</script>
+<link rel="stylesheet" href="style.css?v=10">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need a printer to play?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The puzzle plays right in your browser on your computer or phone. Tap the first letter of a word and drag to the last letter — nothing to print and nothing to download."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the word search free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. It is free to play, with no sign-up and no email address needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many words are hidden in the grid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Twelve Christmas words. They run across, down, and diagonally. Find them all to win."
+      }
+    }
+  ]
+}
+</script>
+<style>
+.ws-wrap { max-width: 560px; margin: 0 auto; }
+.ws-count {
+  font-weight: 700; color: #0a2e4d; margin: 0.5em 0 0;
+}
+.ws-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2px;
+  background: #0a2e4d;
+  border: 2px solid #0a2e4d;
+  border-radius: 6px;
+  padding: 2px;
+  margin: 1em 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+.ws-cell {
+  aspect-ratio: 1 / 1;
+  background: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: clamp(15px, 4.5vw, 24px);
+  font-weight: 700; color: #0a2e4d;
+  cursor: pointer;
+}
+.ws-cell.selecting { background: #bcd8ee; }
+.ws-cell.start { background: #bcd8ee; }
+.ws-cell.found { background: #b7dfb0; color: #1d5c1a; }
+.ws-win {
+  display: none;
+  background: #eaf2f8; border: 2px solid #1a6bb3; border-radius: 6px;
+  padding: 12px 16px; font-weight: 700; color: #0a2e4d; margin: 0 0 1em;
+}
+.ws-btns { display: flex; gap: 10px; flex-wrap: wrap; margin: 0.5em 0 1em; }
+.ws-btns button {
+  background: #1a6bb3; color: #fff; border: 0; border-radius: 6px;
+  padding: 10px 18px; font-size: 1rem; font-weight: 700; cursor: pointer;
+}
+.ws-btns button.secondary { background: #eaf2f8; color: #124a7a; }
+.ws-words { margin: 0 0 1em; }
+.ws-words h3 { margin-bottom: 0.4em; }
+.ws-words ul {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.ws-words li {
+  background: #eaf2f8; color: #124a7a; font-weight: 700;
+  border-radius: 4px; padding: 6px 12px;
+}
+.ws-words li.done {
+  text-decoration: line-through; color: #7a746e; background: #f0ede9;
+}
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <p class="site-title"><a href="index.html">Free printables for home, family and the holidays</a></p>
+    <nav class="main" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <details class="nav-group">
+        <summary>Planners &amp; Calendars</summary>
+        <div class="dropdown">
+          <a href="calendar-2027.html">2027 Calendar</a>
+          <a href="daily-planner.html">Daily Planner</a>
+          <a href="weekly-planner.html">Weekly Planner</a>
+          <a href="habit-tracker.html">Habit Tracker</a>
+        </div>
+      </details>
+      <details class="nav-group">
+        <summary>Home &amp; Kitchen</summary>
+        <div class="dropdown">
+          <a href="meal-planner.html">Meal Planner</a>
+          <a href="cleaning-checklist.html">Cleaning Checklist</a>
+          <a href="chore-chart.html">Chore Chart</a>
+          <a href="recipe-cards.html">Recipe Cards</a>
+        </div>
+      </details>
+      <details class="nav-group">
+        <summary>Budget &amp; Savings</summary>
+        <div class="dropdown">
+          <a href="budget-planner.html">Monthly Budget Planner</a>
+          <a href="savings-challenge.html">52-Week Savings Challenge</a>
+          <a href="bill-tracker.html">Bill Tracker</a>
+          <a href="budget-tracker.html">Zero-Based Google Sheets Budget</a>
+        </div>
+      </details>
+      <details class="nav-group current-section">
+        <summary>Holidays &amp; Activities</summary>
+        <div class="dropdown">
+          <a href="gift-tags.html">Gift Tags</a>
+          <a href="christmas-gift-list.html">Wish List</a>
+          <a href="christmas-budget.html">Christmas Budget</a>
+          <a href="holiday-gift-budget.html">Holiday Gift Budget</a>
+          <a href="holiday-dinner-prep.html">Holiday Dinner Prep</a>
+          <a href="christmas-countdown.html">Christmas Countdown</a>
+          <a href="christmas-wall-art.html">Christmas Wall Art</a>
+          <a href="christmas-menu-planner.html">Christmas Menu Planner</a>
+          <a href="coloring-pages.html">Coloring Pages</a>
+          <a href="christmas-coloring-pages.html">Christmas Coloring Pages</a>
+          <a href="christmas-coloring-book.html">Christmas Coloring Book</a>
+        </div>
+      </details>
+      <a href="wall-art.html">Wall Art</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="tagline-bar"><p>Free printables for running your home. No sign-up, no email, no catch.</p></div>
+
+<div class="ad-slot" data-ad-slot="leaderboard"><!-- AdSense code goes here when approved --></div>
+
+<main>
+  <div class="wrap">
+
+    <section class="page-hero">
+      <p class="eyebrow">Play online — no printer needed</p>
+      <h1>Play the Christmas word search online — free, no sign-up</h1>
+      <p class="lede">Twelve Christmas words are hidden in the grid — across, down, and diagonally. Find them all to win. It plays right in your browser on your computer or phone, with nothing to print and nothing to download.</p>
+    </section>
+
+    <h2>How to play</h2>
+    <ol>
+      <li><strong>Tap the first letter</strong> of a word, then <strong>drag to the last letter</strong> and let go. Or tap the first letter, then tap the last letter.</li>
+      <li>Words can run <strong>across, down, and diagonally</strong>. When you find one, it turns green and gets crossed off the list.</li>
+      <li><strong>Tap Reveal</strong> to show all the answers, or <strong>Start over</strong> to clear the grid and play again.</li>
+    </ol>
+
+    <div class="ws-wrap">
+      <p class="ws-count" id="ws-count">Words found: 0 of 12</p>
+      <div class="ws-grid" id="ws-grid" role="grid" aria-label="Christmas word search puzzle"></div>
+      <p class="ws-win" id="ws-win">You found them all! Every Christmas word is in the grid.</p>
+      <div class="ws-btns">
+        <button type="button" id="btn-reveal" class="secondary">Reveal answers</button>
+        <button type="button" id="btn-clear" class="secondary">Start over</button>
+      </div>
+      <div class="ws-words">
+        <h3>Words to find</h3>
+        <ul id="ws-list"></ul>
+      </div>
+    </div>
+
+    <h2>Common questions</h2>
+    <h3>Do I need a printer to play?</h3>
+    <p>No. The puzzle plays right in your browser on your computer or phone. Tap the first letter of a word and drag to the last letter — nothing to print and nothing to download.</p>
+    <h3>Is the word search free?</h3>
+    <p>Yes. It is free to play, with no sign-up and no email address needed.</p>
+    <h3>How many words are hidden in the grid?</h3>
+    <p>Twelve Christmas words. They run across, down, and diagonally. Find them all to win.</p>
+
+  </div>
+</main>
+
+<div class="ad-slot" data-ad-slot="in-content"><!-- AdSense code goes here when approved --></div>
+
+<footer class="site">
+  <div class="wrap">
+    <nav aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="meal-planner.html">Meal Planner</a>
+      <a href="cleaning-checklist.html">Cleaning Checklist</a>
+      <a href="chore-chart.html">Chore Chart</a>
+      <a href="habit-tracker.html">Habit Tracker</a>
+      <a href="savings-challenge.html">Savings Challenge</a>
+      <a href="budget-planner.html">Budget Planner</a>
+      <a href="calendar-2027.html">2027 Calendar</a>
+      <a href="wall-art.html">Wall Art</a>
+      <a href="gift-tags.html">Gift Tags</a>
+      <a href="coloring-pages.html">Coloring Pages</a>
+      <a href="christmas-coloring-pages.html">Christmas Coloring Pages</a>
+      <a href="christmas-coloring-book.html">Christmas Coloring Book</a>
+      <a href="nature-coloring-book.html">Nature Coloring Book</a>
+      <a href="gardens-coloring-book.html">Gardens Coloring Book</a>
+      <a href="famous-cities-coloring-book.html">Famous Cities Coloring Book</a>
+      <a href="jungle-coloring-book.html">Jungle Coloring Book</a>
+      <a href="christmas-animals-coloring-book.html">Christmas Animals Coloring Book</a>
+      <a href="santas-workshop-coloring-book.html">Santa's Workshop Coloring Book</a>
+      <a href="ocean-animals-coloring-book.html">Ocean Animals Coloring Book</a>
+      <a href="dinosaurs-coloring-book.html">Dinosaurs Coloring Book</a>
+      <a href="christmas-gift-list.html">Gift List</a>
+      <a href="christmas-countdown.html">Countdown</a>
+      <a href="christmas-budget.html">Budget Tracker</a>
+      <a href="holiday-gift-budget.html">Gift Budget Guide</a>
+      <a href="holiday-dinner-prep.html">Holiday Dinner Prep</a>
+      <a href="christmas-menu-planner.html">Menu Planner</a>
+      <a href="christmas-wall-art.html">Christmas Wall Art</a>
+      <a href="daily-planner.html">Daily Planner</a>
+      <a href="weekly-planner.html">Weekly Planner</a>
+      <a href="bill-tracker.html">Bill Tracker</a>
+      <a href="recipe-cards.html">Recipe Cards</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <p>Free Home Printables — every printable on this site is free. You can download 2 a day. Once you've got one, print as many copies as you like for your own home. Figures and dates checked November 2026.</p>
+  </div>
+</footer>
+
+<div class="ad-slot" data-ad-slot="footer"><!-- AdSense code goes here when approved --></div>
+
+<script>
+(function () {
+  "use strict";
+  // Grid generated by a script and verified: every word below is
+  // present in the grid at its stated row/col and direction.
+  var GRID = [
+    "TAKATMCELTSV",
+    "WELFRSMZSJNU",
+    "RSWBESURDGOC",
+    "EBSPECNRXJES",
+    "ATGLFLEOJELA",
+    "TCFYEILCWLLN",
+    "HKKJNIWSKMOT",
+    "EXCDROGSKUAA",
+    "UGEAIRZHSMXN",
+    "YEIBNSPNMTLV",
+    "RKCFKDBYWSAU",
+    "ZCQKTXYPAMGR"
+  ];
+  // row/col are 0-based. dr/dc give the direction the word runs.
+  var WORDS = [
+    { word: "GIFT",     row: 8, col: 1,  dr: 1, dc: 1 },
+    { word: "SANTA",    row: 3, col: 11, dr: 1, dc: 0 },
+    { word: "TREE",     row: 0, col: 4,  dr: 1, dc: 0 },
+    { word: "SNOWMAN",  row: 2, col: 5,  dr: 1, dc: 1 },
+    { word: "REINDEER", row: 3, col: 7,  dr: 1, dc: -1 },
+    { word: "ELF",      row: 1, col: 1,  dr: 0, dc: 1 },
+    { word: "SLEIGH",   row: 3, col: 2,  dr: 1, dc: 1 },
+    { word: "STAR",     row: 8, col: 8,  dr: 1, dc: 1 },
+    { word: "BELLS",    row: 2, col: 3,  dr: 1, dc: 1 },
+    { word: "CANDY",    row: 7, col: 2,  dr: 1, dc: 1 },
+    { word: "WREATH",   row: 1, col: 0,  dr: 1, dc: 0 },
+    { word: "NOEL",     row: 1, col: 10, dr: 1, dc: 0 }
+  ];
+  var SIZE = 12;
+
+  function wordCells(w) {
+    var cells = [], i;
+    for (i = 0; i < w.word.length; i++) {
+      cells.push({ r: w.row + w.dr * i, c: w.col + w.dc * i });
+    }
+    return cells;
+  }
+
+  var gridEl = document.getElementById("ws-grid");
+  var winEl = document.getElementById("ws-win");
+  var countEl = document.getElementById("ws-count");
+  var listEl = document.getElementById("ws-list");
+  var cells = []; // cells[r][c]
+  var found = {}; // word -> true
+  var foundCount = 0;
+
+  // Build the grid.
+  for (var r = 0; r < SIZE; r++) {
+    cells[r] = [];
+    for (var c = 0; c < SIZE; c++) {
+      var cell = document.createElement("div");
+      cell.className = "ws-cell";
+      cell.textContent = GRID[r][c];
+      cell.setAttribute("role", "gridcell");
+      cell.setAttribute("aria-label", "Row " + (r + 1) + ", column " + (c + 1) + ", letter " + GRID[r][c]);
+      cell.dataset.r = r;
+      cell.dataset.c = c;
+      gridEl.appendChild(cell);
+      cells[r][c] = cell;
+    }
+  }
+
+  // Build the word list.
+  var listItems = {};
+  WORDS.forEach(function (w) {
+    var li = document.createElement("li");
+    li.textContent = w.word;
+    li.dataset.word = w.word;
+    listEl.appendChild(li);
+    listItems[w.word] = li;
+  });
+
+  // --- Selection state ---
+  var isDown = false;       // pointer is currently held down (dragging)
+  var dragStart = null;     // {r, c} where the current drag/tap started
+  var pendingStart = null;  // {r, c} after a single tap (tap-tap mode)
+  var selCells = [];        // cells in the current selection
+
+  function sign(n) { return n > 0 ? 1 : (n < 0 ? -1 : 0); }
+
+  // Cells on the straight line from a to b (inclusive). Only straight
+  // lines count: same row, same column, or a true diagonal.
+  function lineCells(a, b) {
+    var dr = b.r - a.r, dc = b.c - a.c;
+    if (dr === 0 && dc === 0) return [{ r: a.r, c: a.c }];
+    if (dr !== 0 && dc !== 0 && Math.abs(dr) !== Math.abs(dc)) {
+      return [{ r: a.r, c: a.c }];
+    }
+    var stepR = sign(dr), stepC = sign(dc);
+    var len = Math.max(Math.abs(dr), Math.abs(dc));
+    var out = [];
+    for (var i = 0; i <= len; i++) {
+      out.push({ r: a.r + stepR * i, c: a.c + stepC * i });
+    }
+    return out;
+  }
+
+  function paintSelection() {
+    var inSel = {};
+    selCells.forEach(function (p) { inSel[p.r + "," + p.c] = true; });
+    for (var r = 0; r < SIZE; r++) {
+      for (var c = 0; c < SIZE; c++) {
+        var cell = cells[r][c];
+        cell.classList.toggle("selecting", !!inSel[r + "," + c]);
+        cell.classList.toggle("start",
+          !!pendingStart && pendingStart.r === r && pendingStart.c === c);
+      }
+    }
+  }
+
+  function lettersOf(list) {
+    return list.map(function (p) { return GRID[p.r][p.c]; }).join("");
+  }
+
+  function updateCount() {
+    countEl.textContent = "Words found: " + foundCount + " of " + WORDS.length;
+    winEl.style.display = foundCount === WORDS.length ? "block" : "none";
+  }
+
+  function markFound(w) {
+    if (found[w.word]) return;
+    found[w.word] = true;
+    foundCount++;
+    wordCells(w).forEach(function (p) {
+      cells[p.r][p.c].classList.add("found");
+    });
+    listItems[w.word].classList.add("done");
+    updateCount();
+  }
+
+  function finishSelection() {
+    if (selCells.length >= 2) {
+      var text = lettersOf(selCells);
+      var rev = text.split("").reverse().join("");
+      WORDS.forEach(function (w) {
+        if (!found[w.word] && (w.word === text || w.word === rev)) {
+          markFound(w);
+        }
+      });
+    } else if (selCells.length === 1) {
+      // Single tap: remember it as the start, so the next tap
+      // on another letter finishes the word (tap-tap mode).
+      pendingStart = { r: selCells[0].r, c: selCells[0].c };
+    }
+    selCells = [];
+    dragStart = null;
+    paintSelection();
+  }
+
+  function beginAt(r, c) {
+    // If a start was tapped already and this is a different letter,
+    // treat this tap as the end of that word.
+    if (pendingStart && (pendingStart.r !== r || pendingStart.c !== c)) {
+      dragStart = pendingStart;
+      pendingStart = null;
+      selCells = lineCells(dragStart, { r: r, c: c });
+      isDown = true;
+      paintSelection();
+      return;
+    }
+    pendingStart = null;
+    dragStart = { r: r, c: c };
+    selCells = [{ r: r, c: c }];
+    isDown = true;
+    paintSelection();
+  }
+
+  gridEl.addEventListener("pointerdown", function (e) {
+    var t = e.target.closest(".ws-cell");
+    if (!t) return;
+    e.preventDefault();
+    beginAt(parseInt(t.dataset.r, 10), parseInt(t.dataset.c, 10));
+  });
+
+  gridEl.addEventListener("pointerover", function (e) {
+    if (!isDown || !dragStart) return;
+    var t = e.target.closest(".ws-cell");
+    if (!t) return;
+    selCells = lineCells(dragStart, {
+      r: parseInt(t.dataset.r, 10),
+      c: parseInt(t.dataset.c, 10)
+    });
+    paintSelection();
+  });
+
+  document.addEventListener("pointerup", function () {
+    if (!isDown) return;
+    isDown = false;
+    finishSelection();
+  });
+
+  // If the pointer leaves the page mid-drag, end the selection.
+  document.addEventListener("pointercancel", function () {
+    if (!isDown) return;
+    isDown = false;
+    finishSelection();
+  });
+
+  document.getElementById("btn-reveal").addEventListener("click", function () {
+    WORDS.forEach(markFound);
+    pendingStart = null;
+    selCells = [];
+    paintSelection();
+  });
+
+  document.getElementById("btn-clear").addEventListener("click", function () {
+    found = {};
+    foundCount = 0;
+    pendingStart = null;
+    selCells = [];
+    isDown = false;
+    dragStart = null;
+    for (var r = 0; r < SIZE; r++) {
+      for (var c = 0; c < SIZE; c++) {
+        cells[r][c].classList.remove("found");
+      }
+    }
+    WORDS.forEach(function (w) {
+      listItems[w.word].classList.remove("done");
+    });
+    updateCount();
+    paintSelection();
+  });
+
+  updateCount();
+})();
+</script>
+</body>
+</html>
