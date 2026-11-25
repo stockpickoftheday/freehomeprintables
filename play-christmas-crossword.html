@@ -182,6 +182,7 @@
       <li><strong>Tap a square</strong> to pick a word — tap the same square again to switch between across and down.</li>
       <li><strong>Type the letters.</strong> The puzzle moves to the next square on its own.</li>
       <li><strong>Tap Check</strong> to see which letters are wrong, <strong>Reveal</strong> to fill the whole puzzle, or <strong>Clear</strong> to start over.</li>
+      <li><strong>Made a mistake?</strong> Tap the square and type the right letter — it replaces the old one. Or tap <strong>Erase</strong> to delete the letter in the selected square.</li>
     </ol>
 
     <div class="xword-wrap">
@@ -191,6 +192,7 @@
         <button type="button" id="btn-check">Check</button>
         <button type="button" id="btn-reveal" class="secondary">Reveal</button>
         <button type="button" id="btn-clear" class="secondary">Clear</button>
+        <button type="button" id="btn-erase" class="secondary">⌫ Erase</button>
       </div>
       <div class="xword-clues">
         <div>
@@ -338,20 +340,70 @@
       } else {
         var input = document.createElement("input");
         input.type = "text";
-        input.maxLength = 1;
         input.setAttribute("aria-label", "Row " + (r + 1) + ", column " + (c + 1));
         input.autocomplete = "off";
         input.autocapitalize = "characters";
         input.spellcheck = false;
         (function (rr, cc, inp) {
-          inp.addEventListener("focus", function () { select(rr, cc, null); });
+          // Remember whether this cell was already selected before this
+          // tap began. mousedown/touchstart fire before focus, so they
+          // see the selection as it was before the tap. Only a tap on
+          // the already-selected cell should switch across/down.
+          function markTap() { inp._wasSelected = (current.row === rr && current.col === cc); }
+          inp.addEventListener("mousedown", markTap);
+          inp.addEventListener("touchstart", markTap);
+          inp.addEventListener("focus", function () {
+            select(rr, cc, null, advancing);
+            try { inp.setSelectionRange(inp.value.length, inp.value.length); } catch (e) {}
+          });
           inp.addEventListener("click", function () {
-            if (current.row === rr && current.col === cc) {
+            if (inp._wasSelected) {
               select(rr, cc, current.dir === "across" ? "down" : "across");
             }
+            inp._wasSelected = false;
+            // The click itself can leave the caret at the start of the
+            // letter; put it at the end so typing appends after it.
+            try { inp.setSelectionRange(inp.value.length, inp.value.length); } catch (e) {}
           });
-          inp.addEventListener("input", function () {
-            inp.value = inp.value.replace(/[^a-zA-Z]/g, "").toUpperCase();
+          inp.addEventListener("beforeinput", function (e) {
+            // Phone keyboards often delete with an input event instead
+            // of a Backspace key. Remember whether the cell had a
+            // letter before the delete, so we know whether to stay
+            // or move back.
+            if (e.inputType === "deleteContentBackward") {
+              inp._hadValue = !!inp.value;
+              inp._inserted = "";
+            } else if (e.inputType === "insertText") {
+              // Remember exactly what was typed. The caret can sit at
+              // the start of the old letter, so the new letter may land
+              // before it — using the typed letter directly means the
+              // replacement always works, whatever the caret did.
+              inp._inserted = (e.data || "").replace(/[^a-zA-Z]/g, "").toUpperCase();
+            } else {
+              inp._inserted = "";
+            }
+          });
+          inp.addEventListener("input", function (e) {
+            // Mobile backspace: the letter is already gone by now.
+            if (e.inputType === "deleteContentBackward") {
+              if (!inp._hadValue) movePrev(rr, cc);
+              else cell.classList.remove("wrong");
+              checkWin();
+              return;
+            }
+            var v;
+            if (inp._inserted) {
+              v = inp._inserted.slice(-1);
+            } else {
+              // No beforeinput (e.g. a scripted change): fall back to
+              // the last letter in the cell.
+              v = inp.value.replace(/[^a-zA-Z]/g, "").toUpperCase();
+              v = v ? v.slice(-1) : "";
+            }
+            inp._inserted = "";
+            // Keep only the letter just typed, so typing over a filled
+            // cell replaces the old letter instead of being ignored.
+            inp.value = v;
             cell.classList.remove("wrong");
             if (inp.value) moveNext(rr, cc);
             checkWin();
@@ -381,19 +433,37 @@
     }
   }
 
+  // True while focus is moving because of typing or arrow keys, so the
+  // focus handler knows to keep the current direction instead of
+  // re-picking it from the cell. A real tap leaves this false.
+  var advancing = false;
   function focusCell(r, c) {
     if (r < 0 || r >= ROWS || c < 0 || c >= COLS) return false;
     var inp = inputs[r][c];
     if (!inp) return false;
+    advancing = true;
     inp.focus();
+    advancing = false;
     return true;
   }
-  function select(r, c, dir) {
+  function select(r, c, dir, fromAdvance) {
     if (dir) {
       if (!wordAt(r, c, dir)) dir = dir === "across" ? "down" : "across";
+    } else if (!fromAdvance) {
+      // The user tapped this cell. If it starts a word in one direction
+      // only, use that direction, so tapping 5-Across gives across.
+      var startsAcross = false, startsDown = false;
+      WORDS.forEach(function (w) {
+        if (w.row === r && w.col === c) {
+          if (w.dir === "across") startsAcross = true; else startsDown = true;
+        }
+      });
+      if (startsAcross && !startsDown) dir = "across";
+      else if (startsDown && !startsAcross) dir = "down";
+      else dir = wordAt(r, c, current.dir) ? current.dir : (current.dir === "across" ? "down" : "across");
     } else {
-      // Focus moved here (tap or typing): keep the current direction if
-      // this cell is in a word going that way, otherwise switch.
+      // Focus arrived by typing or arrow keys: keep the current
+      // direction if this cell is in a word going that way.
       dir = wordAt(r, c, current.dir) ? current.dir : (current.dir === "across" ? "down" : "across");
     }
     current = { row: r, col: c, dir: dir };
@@ -509,6 +579,23 @@
     checkWin();
     focusCell(0, 1);
     select(0, 1, "across");
+  });
+  document.getElementById("btn-erase").addEventListener("click", function () {
+    // Delete the letter in the selected square. If it is already empty,
+    // step back and delete that one, just like the Backspace key.
+    var inp = inputs[current.row][current.col];
+    var cell = gridEl.children[current.row * COLS + current.col];
+    if (inp && inp.value) {
+      inp.value = "";
+      cell.classList.remove("wrong");
+    } else {
+      movePrev(current.row, current.col);
+      var inp2 = inputs[current.row][current.col];
+      var cell2 = gridEl.children[current.row * COLS + current.col];
+      if (inp2 && inp2.value) { inp2.value = ""; cell2.classList.remove("wrong"); }
+    }
+    checkWin();
+    focusCell(current.row, current.col);
   });
 
   select(0, 1, "across");
